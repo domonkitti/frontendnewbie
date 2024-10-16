@@ -1,0 +1,44 @@
+{
+  "items": [
+    {
+      "title": "Motherboard",
+      "amount": 8,
+      "price": 2300,
+      "contactMobileNo": "0878901234",
+      "status": "APPROVED",
+      "id": 7
+    },
+    {
+      "title": "CPU Cooler",
+      "amount": 5,
+      "price": 1200,
+      "contactMobileNo": "0889012345",
+      "status": "APPROVED",
+      "id": 8
+    },
+    {
+      "title": "SSD Storage",
+      "amount": 10,
+      "price": 500,
+      "contactMobileNo": "0890123456",
+      "status": "PENDING",
+      "id": 9
+    },
+    {
+      "title": "Gaming Chair",
+      "amount": 9,
+      "price": 1400,
+      "contactMobileNo": "0891234567",
+      "status": "REJECTED",
+      "id": 10
+    },
+    {
+      "title": "โต๊ะ",
+      "contactMobileNo": "0891234567",
+      "amount": 123,
+      "price": 33,
+      "status": "PENDING",
+      "id": 11
+    }
+  ]
+}
