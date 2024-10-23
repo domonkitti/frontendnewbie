@@ -1,13 +1,13 @@
 <!-- login.component.html -->
-<h3 class="m-4">Login</h3>
-debug : {{ fg.value | json }}
+<h3 class="m-4">Signup</h3>
+<!-- debug : {{ fg.value | json }} -->
 <hr />
 <div class="d-flex justify-content-center">
-  <form class="w-50" [formGroup]="fg" (ngSubmit)="onLogin()">
+  <form class="w-50" [formGroup]="fg" (ngSubmit)="onSignup()">
     @if (error) {
       <alert type="danger" [dismissible]="true">
-        <strong>Oh snap!</strong>
-        login fail.
+        <strong>Oh snap!</strong>{{ error }}
+        Signup fail.
       </alert>
     }
 
@@ -19,10 +19,13 @@ debug : {{ fg.value | json }}
       <label for="password" class="form-label">Password</label>
       <input type="password" class="form-control" id="password" formControlName="password" />
     </div>
+    <div class="mb-3">
+        <label for="displayname" class="form-label">YourName</label>
+        <input type="displayname" class="form-control" id="displayname" formControlName="displayname" />
+    </div>
+
 
     <button type="submit" class="btn btn-primary">Submit</button>
-    
-    <button class="btn btn-primary" type="button" routerLink="/auth/signup">สมัครสมาชิก</button>
   </form>
 </div>
 

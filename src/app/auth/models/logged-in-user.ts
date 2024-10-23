@@ -14,6 +14,7 @@ export interface Tokens {
   export interface UserProfile {
     id: number;
     username: string
+    displayname:string;
     role: Role;
     exp: number;
   }

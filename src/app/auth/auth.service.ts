@@ -6,6 +6,7 @@ import { jwtDecode } from 'jwt-decode';
 import { Observable, tap } from 'rxjs';
 import { ENV_CONFIG } from '../env.config';
 import { LoggedInUser, Tokens, UserProfile } from './models/logged-in-user';
+import { Signup } from './models/sign-in-user';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ import { LoggedInUser, Tokens, UserProfile } from './models/logged-in-user';
 export class AuthService {
   private envConfig = inject(ENV_CONFIG);
   readonly URL = `${this.envConfig.apiUrl}/auth/login`;
+  readonly signupURL = `http://localhost:3000/users`;
   readonly TOKENS = 'TOKENS';
 
   httpClient = inject(HttpClient);
@@ -33,7 +35,10 @@ export class AuthService {
       .post<Tokens>(this.URL, credential)
       .pipe(tap((newToken) => this.setTokens(newToken)));
   }
-
+  signup(credential: { username: string; password: string;displayname:string }):Observable<Signup>{
+    return this.httpClient
+    .post<Signup>(this.signupURL, credential)
+  }
   setTokens(newToken: Tokens) {
     const userProfile = jwtDecode<UserProfile>(newToken.access_token);
     this.loggedInUser = { tokens: newToken, userProfile };

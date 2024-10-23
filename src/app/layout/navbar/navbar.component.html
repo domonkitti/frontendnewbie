@@ -17,7 +17,7 @@
     <!-- add -->
     @if (authService.loggedInUser; as loggedInUser) {
       <span class="navbar-text">
-        <span>{{ loggedInUser.userProfile.username }}</span>
+        <span>{{ loggedInUser.userProfile.displayname }}</span>
         |
         <i class="bi bi-box-arrow-in-right align-middle text-primary" (click)="onLogout()"></i>
       </span>
