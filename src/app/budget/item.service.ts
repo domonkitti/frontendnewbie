@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { CreateItem, EditIem, Item, ItemStatus } from './models/item';
 import { ENV_CONFIG } from '../env.config';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,12 +11,16 @@ import { ENV_CONFIG } from '../env.config';
 export class ItemService {
   envConfig = inject(ENV_CONFIG);
   readonly URL = `${this.envConfig.apiUrl}/items`;
+  readonly editURL = `${this.envConfig.apiUrl}/items/edit/edit`;
   private httpClient = inject(HttpClient);
 
   constructor() {}
 
-  list() {
+  list(): Observable<Item[]> {
     return this.httpClient.get<Item[]>(this.URL);
+  }
+  listforedit() {
+    return this.httpClient.get<Item[]>(this.editURL);
   }
 
   get(id: number) {

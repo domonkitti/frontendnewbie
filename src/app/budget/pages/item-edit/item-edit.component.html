@@ -1,7 +1,6 @@
 <!-- item-entry.component.html -->
-<h3 class="m-4">Item Entry</h3>
-<app-budget-plan />
-
+<h3 class="m-4">YourItems</h3>
+<app-budget-plan  />
 <div class="row">
   <div class="col">
   </div>
@@ -17,6 +16,7 @@
 
 <table class="table table-hover" [class.table-sm]="isSmallTable">
   <thead>
+    <th></th>
     <th>#</th>
     <th>Title</th>
     <th class="text-end pe-5">Price</th>
@@ -28,6 +28,10 @@
   <tbody>
     @for (item of filterItems; track item.id) {
       <tr>
+        <td>
+          <i class="bi bi-pencil mx-2" routerLink="/budget/item-edit/{{ item.id }}" ></i>
+          <i class="bi bi-trash mx-2" (click)="onConfirm(item)" ></i>
+        </td>
         <td>{{ item.id }}</td>
         <td>{{ item.title }}</td>
         <td class="text-end pe-5">{{ item.price | number:'1.2-2' }}</td>

@@ -5,6 +5,7 @@ import { JsonPipe, Location } from '@angular/common';
 import { thMobile } from '../../../shared/validators/th-mobile.validator';
 import { ItemService } from '../../item.service';
 import { ItemStatus } from '../../models/item';
+import { AuthService } from '../../../auth/auth.service';
 
 @Component({
   selector: 'app-item-form',
@@ -22,19 +23,22 @@ export class ItemFormComponent implements OnInit {
   location = inject(Location);
   fb = inject(NonNullableFormBuilder)
   itemService = inject(ItemService)
+  authService = inject(AuthService);
 
   // formControls
   title = this.fb.control<string>('', { validators: Validators.required });
   contactMobileNo = this.fb.control<string>('', { validators: [Validators.required, thMobile] });
   amount = this.fb.control<number>(0, { validators: [Validators.required, Validators.min(1)] });
   price = this.fb.control<number>(0, { validators: [Validators.required, Validators.min(0.5)] });
+  owner = this.fb.control(this.authService.loggedInUser?.userProfile.displayname || '');
 
   // formGroup
   fg = this.fb.group({
     title: this.title,
     contactMobileNo: this.contactMobileNo,
     amount: this.amount,
-    price: this.price
+    price: this.price,
+    owner:this.owner
   })
 
   ngOnInit() {

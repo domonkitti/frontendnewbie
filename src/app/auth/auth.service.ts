@@ -14,7 +14,7 @@ import { Signup } from './models/sign-in-user';
 export class AuthService {
   private envConfig = inject(ENV_CONFIG);
   readonly URL = `${this.envConfig.apiUrl}/auth/login`;
-  readonly signupURL = `http://localhost:3000/users`;
+  readonly signupURL = `${this.envConfig.apiUrl}/users`;
   readonly TOKENS = 'TOKENS';
 
   httpClient = inject(HttpClient);

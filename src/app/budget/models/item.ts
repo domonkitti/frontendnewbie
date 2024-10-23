@@ -22,4 +22,5 @@ export enum ItemStatus {
     price: number;
     contactMobileNo: string;
     status: ItemStatus;
+    owner:string
   }
