@@ -1,0 +1,25 @@
+.custom-login-button {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 4px; 
+    padding: 6px 20px; 
+  }
+  
+  .custom-login-button:hover {
+    background-color: #310a41; 
+    color: #fff;
+    box-shadow: 0px 4px 15px rgba(0, 123, 255, 0.4); 
+  }
+  .custom-navbar {
+    background-color: rgb(223, 222, 205); /* สีฟ้าตามต้องการ */
+  }
+  .nav-link.btn {
+    transition: background-color 0.3s ease, color 0.3s ease;
+    transform: scale(1.2); 
+  }
+  
+  .nav-link.btn:hover {
+    background-color: #9611e9;
+    color: #fff;
+    padding: 6px 20px; 
+  }
+  

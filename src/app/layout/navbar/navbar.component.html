@@ -1,16 +1,16 @@
 <!-- navbar.component.html -->
-<nav class="navbar navbar-expand-md bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand  d-flex align-items-center" routerLink="/">
+<nav class="navbar navbar-expand-md custom-navbar">
+  <div class="container-fluid d-flex justify-content-center">
+    <a class="navbar-brand d-flex align-items-center" routerLink="/">
       <img src="logo.svg" alt="logo" width="60" height="48">
-      <span>Budget App</span>
+      <span class="ms-2">Budget App</span>
     </a>
     <div class="navbar-collapse">
       <ul class="navbar-nav">
         @for (menu of menus; track menu.path) {
           @if (!menu.role || menu.role === authService.loggedInUser?.userProfile?.role) {
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="menu.path">{{ menu.title }}</a>
+            <li class="nav-item me-4">
+              <a class="btn btn-outline-primary nav-link" [routerLink]="menu.path">{{ menu.title }}</a>
             </li>
           }
         }
@@ -24,11 +24,11 @@
         <i class="bi bi-box-arrow-in-right align-middle text-primary" (click)="onLogout()"></i>
       </span>
     } @else {
-      <button class="btn btn-outline-primary me-2" type="button" routerLink="/auth/login">
-        Login
+      <button class="btn btn-outline-primary btn-lg shadow custom-login-button" type="button" routerLink="/auth/login">
+        <i class="bi bi-box-arrow-in-right me-2"></i> Login
       </button>
-      <button class="btn btn-outline-primary ms-2" type="button" (click)="onKeycloakLogin()">
-        Login by Keycloak
+      <button class="btn btn-outline-primary ms-2 " type="button" (click)="onKeycloakLogin()">
+        <img src="Keycloak-logo.png" alt="logo" width="120" height="30">
       </button>      
     }    
   </div>
