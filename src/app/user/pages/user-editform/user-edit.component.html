@@ -20,14 +20,18 @@
     </div>
     <div class="mt-3">
       {{ role.errors | json }}
-      <label class="form-label" for="role">role</label>
-      <input
+      <label class="form-label" for="role">Role</label>
+      <select
         class="form-control"
         [class.is-invalid]="role.errors && role.touched"
         formControlName="role"
         id="role"
-        type="string"
-      />
+      >
+        <option value="">Select a role</option> <!-- Default empty option -->
+        <option value="USER">USER</option>
+        <option value="ADMIN">ADMIN</option>
+        <option value="MANAGER">MANAGER</option>
+      </select>
     </div>
 
 
