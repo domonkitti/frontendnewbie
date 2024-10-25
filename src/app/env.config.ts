@@ -7,6 +7,9 @@ export type EnvConfig = {
 
 export const ENV_CONFIG = new InjectionToken<EnvConfig>('ENV_CONFIG', {
   factory: () => {
-    return { apiUrl: 'http://localhost:3000' }
+    return { 
+      apiUrl: 'http://localhost:3000'
+
+     }
   }
 })

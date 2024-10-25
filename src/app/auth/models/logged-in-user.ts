@@ -23,5 +23,14 @@ export interface Tokens {
     tokens: Tokens;
     userProfile: UserProfile;
   }
-  
-  
+  export interface UserEditable {
+    id: number| null;
+    username:string;
+    displayname:string;
+    role: Role;
+  }
+  export interface UserEditable2 {
+    username:string;
+    displayname:string;
+    role: Role;
+  }

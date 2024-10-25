@@ -7,5 +7,5 @@ export const routes: Routes = [
   { path: 'budget', loadChildren: () => import('./budget/budget.routes'),canActivate:[loggedInGuard] },
   { path: 'demo', component: DemoComponent},
   { path: 'auth', loadChildren: () => import('./auth/auth.routes') },
-
+  { path: 'user', loadChildren: () => import('./user/user.routes') },
 ];

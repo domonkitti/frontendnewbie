@@ -8,9 +8,11 @@
     <div class="navbar-collapse">
       <ul class="navbar-nav">
         @for (menu of menus; track menu.path) {
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="menu.path">{{ menu.title }}</a>
-          </li>
+          @if (!menu.role || menu.role === authService.loggedInUser?.userProfile?.role) {
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="menu.path">{{ menu.title }}</a>
+            </li>
+          }
         }
       </ul>
     </div>

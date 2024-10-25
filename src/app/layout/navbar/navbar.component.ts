@@ -2,6 +2,7 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '../../auth/auth.service';
+import { Role } from '../../auth/models/logged-in-user';
 
 @Component({
   selector: 'app-navbar',
@@ -16,9 +17,11 @@ export class NavbarComponent {
   authService = inject(AuthService);
   
   menus = [
-    { path: 'budget/item-entry', title: 'Entry' },
+    { path: 'budget/item-entry', title: 'Allitem' },
     { path: 'budget/editlist', title: 'Myitem' },
-    { path: 'budget/item-approval', title: 'Approval' },
+    { path: 'budget/item-approval', title: 'Approval',roles: ['ADMIN', 'MANAGER'] },
+    { path: 'user/list', title: 'alluser',role:'GOD' },
+    
     
   ]
 
