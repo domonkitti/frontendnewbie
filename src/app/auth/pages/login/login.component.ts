@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
         const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/'; // add
         this.router.navigate([returnUrl]); // add
       },
-      error: (error) => (this.error = error)
+      error: (error) => {this.error = error.error?.message|| 'ไม่สามารถระบุข้อผิดพลาดได้'}
     });
   }
 }

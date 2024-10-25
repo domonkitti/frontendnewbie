@@ -1,5 +1,5 @@
 <!-- item-entry.component.html -->
-<h3 class="m-4">Item Entry</h3>
+<h3 class="m-4">AllItem</h3>
 <app-budget-plan />
 
 <div class="row">
@@ -28,6 +28,10 @@
   <tbody>
     @for (item of filterItems; track item.id) {
       <tr>
+        <td>
+          @if (!menu.role || menu.role === authService.loggedInUser?.userProfile?.role){<i class="bi bi-trash mx-2" (click)="onConfirm(item)" ></i>}
+          <!-- @if ((authService.loggedInUser?.userProfile?.role === 'GOD')){<i class="bi bi-trash mx-2" (click)="onConfirm(item)" ></i>} -->
+        </td> 
         <td>{{ item.id }}</td>
         <td>{{ item.title }}</td>
         <td class="text-end pe-5">{{ item.price | number:'1.4-4' }}</td>

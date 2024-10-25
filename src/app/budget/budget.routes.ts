@@ -17,7 +17,7 @@ export const routes: Routes = [
     path: 'item-approval',
     component: ItemApprovalComponent,
     title: 'Approval',
-    canActivate: [rolesGuard([Role.ADMIN, Role.MANAGER])]
+    canActivate: [rolesGuard([Role.ADMIN, Role.MANAGER,Role.GOD])]
   }
 ];
 

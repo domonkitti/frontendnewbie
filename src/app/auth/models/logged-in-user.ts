@@ -8,7 +8,8 @@ export interface Tokens {
   export enum Role {
     USER = 'USER',
     ADMIN = 'ADMIN',
-    MANAGER = 'MANAGER'
+    MANAGER = 'MANAGER',
+    GOD = 'GOD'
   }
   
   export interface UserProfile {
